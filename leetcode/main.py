@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time    : 11/11/2019 9:41 PM
+# Time    : 11/13/2019 3:43 PM
 # Author  : BLKStone
 # Site    : http://wp.blkstone.me
-# File    : 9_Palindrome_Number.py.py
+# File    : main.py
 # Software:  PyCharm
 
-# https://leetcode-cn.com/problems/palindrome-number/
+import random
+
 class Solution(object):
 
     # Ordinary Solution
@@ -30,6 +31,7 @@ class Solution(object):
                 continue
             else:
                 flag = False
+                break
         return flag
 
     # Mathematical Solution
@@ -44,14 +46,14 @@ class Solution(object):
 
         div = 1
 
-    def digitNumbers(self, x):
+    def maxDivison(self, x):
         """
         :param x: int
         :return: int
         """
         div = 1
         while x >= 10:
-            x = int(x / div)
+            x = int(x / 10)
             div = div * 10
         return div
 
@@ -60,9 +62,18 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
+        max_div = self.maxDivison(x)
+        print(x)
+        print(int(x/max_div))
 
-        print(self.digitNumbers(529))
 
+if __name__ == '__main__':
+    sol = Solution()
+
+
+    for i in range(20):
+        x = random.randint(1, 100000)
+        sol.reverseNumber(x)
 
 
 

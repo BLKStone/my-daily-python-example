@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time    : 11/11/2019 9:51 PM
+# Time    : 11/13/2019 4:16 PM
 # Author  : BLKStone
 # Site    : http://wp.blkstone.me
-# File    : 111_Minimum_Depth_of_Binary_Tree.py.py
+# File    : 104_Maximum_Depth_of_Binary_Tree.py
 # Software:  PyCharm
 
 # Definition for a binary tree node.
@@ -13,9 +13,9 @@
 #         self.left = None
 #         self.right = None
 
-# https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+# https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
 class Solution(object):
-    def minDepth(self, root):
+    def maxDepth(self, root):
         """
         :type root: TreeNode
         :rtype: int
@@ -23,7 +23,8 @@ class Solution(object):
         if root is None:
             return 0
         if root.left is None:
-            return self.minDepth(root.right) + 1
+            return self.maxDepth(root.right) + 1
         if root.right is None:
-            return self.minDepth(root.left) + 1
-        return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
+            return self.maxDepth(root.left) + 1
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+
